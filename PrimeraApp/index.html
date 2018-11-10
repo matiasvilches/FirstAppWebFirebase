@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Charset -->
+    <meta charset="UTF-8">
+    
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Título -->
+    <title>Primera app web con Firebase</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script>
+        // Inicializamos Firebase.
+        // (Tu configuración de firebase pegala acá)
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div class="container mt-5">
+
+        <!-- Primer título - Registro de usuario -->
+        <h3 class="text-center">#1 - Registrar usuario con Firebase</h3>
+        <br>
+
+        <!-- Primera fila -->
+        <div class="row justify-content-center">
+            <!-- Email registro de usuario -->
+            <div class="col-md-4">
+                <label>Email</label>
+                <input type="email" id="txtEmailR" class="form-control" required>
+            </div>
+
+            <!-- Contraseña registro de usuario -->
+            <div class="col-md-4">
+                <label>Contraseña</label>
+                <input type="password" id="pswContraseñaR" class="form-control" required>
+            </div>
+        </div>
+        <br><br>
+
+        <!-- Segunda fila -->
+        <div class="row justify-content-center">
+            <!-- Botón registrar -->
+            <input type="button" id="btnRegistrarme" value="Registrarme" onclick="registrarUsuario()" class="btn btn-primary">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Botón iniciar sesión con Google -->
+            <input type="button" id="btnIniciarGoogle" value="Iniciar sesión con Google" onclick="registrarUsuarioGoogle()" class="btn btn-default">
+        </div>
+        <br>
+
+        <!-- Tercera fila - Alerta Registro de usuario -->
+        <div class="row justify-content-center">
+            <div class="alert alert-primary col-md-7 text-center" role="alert" style="display: none" id="alertaRegistroUsuario">
+                <!-- Mensaje de la alerta -->
+                <div id="contenidoRegistroUsuario"></div>
+            </div>
+        </div>
+        <hr><br>
+
+        <!-- Segundo título - Ingreso de usuario -->
+        <h3 class="text-center">#2 - Ingresar</h3>
+        <br>
+
+        <!-- Cuarta fila -->
+        <div class="row justify-content-center">
+            <!-- Email ingreso -->
+            <div class="col-md-4">
+                <label>Email</label>
+                <input type="email" id="txtEmailI" class="form-control" required>
+            </div>
+
+            <!-- Contraseña ingreso -->
+            <div class="col-md-4">
+                <label>Contraseña</label>
+                <input type="password" id="pswContraseñaI" class="form-control" required>
+            </div>
+        </div>
+        <br><br>
+    
+        <!-- Quinta fila -->
+        <div class="row justify-content-center">
+            <input type="button" id="btnIngresar" value="Ingresar" onclick="ingresar()" class="btn btn-primary">
+        </div>
+        <br>
+
+        <!-- Sexta fila - Alerta Ingreso -->
+        <div class="row justify-content-center">
+            <div class="alert alert-warning col-md-7 text-center" role="alert" style="display: none" id="alertaIngreso">
+                <div id="contenidoIngreso"></div>
+            </div>
+        </div>
+        <!-- Línea divisoria -->
+        <hr id="lineaDivisoria" style="display: none">
+        <br>
+
+        <!-- Tercer título - Bienvenido -->
+        <h3 class="text-center" id="tituloBienvenido" style="display: none">#3 - Bienvenido</h3>
+        <br>
+
+        <!-- Septima fila - Lista del usuario registrado -->
+        <div class="row justify-content-center">
+            <ul class="list-group list-group-flush" style="display: none" id="listaUsuario">
+                <li class="list-group-item">Tu nombre: &nbsp; <span id="nombreUsuario"></span></li>
+                <li class="list-group-item">Tu email: &nbsp; <span id="emailUsuario"></span></li>
+            </ul>
+        </div>
+        <br>
+
+        <!-- Octava fila - Foto del usuario -->
+        <div class="row justify-content-center">
+            <div id="fotoUsuario"></div>
+        </div>
+        <br>
+
+        <!-- Novena fila - Esta alerta solo la ven los miembros de la app (Registrados y verificados) -->
+        <div class="row justify-content-center">
+            <div class="col-md-7 alert alert-warning text-center" role="alert" id="alertaUsuarioRegistrado" style="display: none">
+                <!-- Mensaje de la alerta -->
+                <div id="contenidoUsuarioRegistrado"></div>
+            </div>
+        </div>
+
+        <!-- Décima fila - Botón de cerrar sesión (Este botón solo lo ven los usuarios registrados) -->
+        <div class="row justify-content-center">
+            <input type="button" id="btnCerrarSesion" value="Cerrar Sesión" onclick="cerrarSesion()" class="btn btn-danger" style="display: none">
+        </div>
+        <br>
+    </div>
+
+    <!-- Funciones JavaScript con Firebase -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>
